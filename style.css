@@ -1,0 +1,735 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    box-sizing: border-box;
+}
+
+/* Menú escritorio */
+
+header{
+    background-color:white;
+    width: 95%;
+    height: 120px;
+}   
+header label:hover{
+    cursor: pointer;  
+}
+
+.logo img {
+    padding: 0;;
+    position: absolute;
+    top: 20px;
+    left: 70px;
+    width: 36px;
+    height: 36px;
+}
+/* Se esconde menú burguer en desktop*/
+
+#boton_menu{
+    display: none;
+    width: 100%;
+}
+.hamb, .cruz{
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding-top: 15px;
+    left: 90%;
+    
+}
+.cruz{
+    position: absolute;
+    opacity: 0;
+    top: 0;
+}
+/* Flex con direccion Row = fila y wrap para que se adapte al tamaño
+ con el menú tirando la ul = lista a la derecha flex end */
+.menu ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;    
+    justify-content: flex-end;
+    margin-right: 100px;
+    
+}
+
+.menu li a{  
+    font-family:'IBM Plex Mono',monospace;
+    font-size: 16px;
+    color: #060a24;
+    letter-spacing: 0;
+    line-height: 28px;
+    display: block;
+    padding:15px 20px;
+    text-decoration: none;
+}
+
+.menu ul li a:hover{
+    color: #00f3bb;
+    text-decoration: line-through;
+}
+
+.menu  ul li a:active{
+    color: rgba(6,10,36,0.568);
+    text-decoration: none;
+}
+
+/* Menú MOBILE !*/
+
+@media (max-width: 1220px){
+    /* Mostrar en bloque la lista sacandole el hiden = escondido */
+    .hamb, .cruz{
+        display: block;
+    }
+    /* le damos dirección de columna */
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+       /* Lista ul se encuentra escondida */
+    .menu{
+        position: absolute;
+        color: white;
+        width: 80%;
+        margin-left: -100%;
+        z-index: 1;
+        transition: all 0.4s;  
+    }
+    
+    /* Click a burguer, aparece la lista que estaba esondida de -100 a 0 */
+    #boton_menu:checked ~ .menu{    
+        margin: 0%; 
+        display: block;
+    }
+    /* Menú check, no se ve burguer, opacidad 0 -*/
+    #boton_menu:checked ~ .hamb{
+        opacity: 0;
+    }
+    /* Click a cruz el menú vuelve a la normalidad  */
+    #boton_menu:checked ~ .cruz{
+        opacity: 1;
+    }
+    #btn_menu{
+        display: none;
+    }
+  /* Estilo menú mobile*/
+    .menu ul{
+
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        display: block;
+        flex-flow: row wrap;
+        justify-content: flex-end;  
+        background-color: #0000FE;
+    }
+    .menu li  {
+        margin-bottom: 5px;
+    }
+
+    .menu ul li a {
+        color:white;
+    }
+}
+
+/*-------------------------------------------------*/
+
+/*section MOBILE */
+
+.section{
+    position: relative;
+    margin-top: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
+    display: flex;
+    flex-flow: column wrap;
+  
+}
+.puntoAzul{
+    color: blue;
+}
+.tachado{
+    text-decoration: line-through;
+}
+
+.section .caja1{
+    font-family: 'IBM Plex Sans',sans-serif;
+    color: #060A24;
+    letter-spacing: 0;
+    width: 100%;   
+}
+
+.section .caja1 h1{
+    font-size: 36px;
+}
+.section .caja2{
+    font-family:'IBM Plex Mono',monospace;
+    font-size: 14px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding: 10px;
+}
+.section .caja3 a{
+    position: absolute;
+    width: 100%;
+    height: 48px;
+    background: #00F3BB;
+    text-decoration: none;
+    color: #060a24;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 7px;
+}
+.section .caja3{
+    position: relative;
+    width:288px;
+    height:48px;
+    background: #00F3BB;
+
+}
+.section .caja3 a:hover{
+    background-image: linear-gradient(to right, #00F0B8, #0000FE);
+    color: white;
+}
+
+/* Episodios mobile  */
+.episodios{
+    max-width: 100%;
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -webkit-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -o-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -moz-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    clip-path: polygon(0 calc(0% + 3rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+    -webkit-clip-path:polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+    -ms-clip-path:polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+    -o-clip-path:polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+    -moz-clip-path:polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+    padding-top: 100px;
+    padding-bottom: 1050px;
+    position: relative;
+    height: 1500px;
+     /*    background-image: -webkit-linear-gradient(linear, left top, right);
+    background-image: -o-linear-gradient(left, #0000A3, #0000FF);
+    background-image: linear-gradient(to right, #0000A3, #0000FF);
+    clip-path: polygon(0 10%, 100% 0, 100% 89%, 0% 100%);
+    -webkit-clip-path-: polygon(0 10%, 100% 0, 100% 89%, 0% 100%); */
+
+}
+.episodios h2{
+    color: white;
+    margin: 10px;
+    padding-left: 80px;
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: 42px;
+
+}
+.episodios .contenedorIframe{
+    width:100%;
+    border: none;
+      
+}
+.episodios .elementos{
+    border: none;
+}
+.contenedorIframe iframe{
+    width: 100%;
+    border: none;
+    height: 232px;
+}
+
+/* Invitados mobile */
+    
+.invitados{
+     position: relative;
+    top: -100px;
+}
+.invitados h3{
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 30px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 62px;
+    margin-bottom: 10px;
+    height: 62px;
+    font-weight: 100;
+    left: 1%;
+    position: relative;
+}
+
+.invitados .contenedorInvitados img{
+    width: 100%;
+}
+
+/* Temas mobile */
+.temas{
+    top: -100px;
+    position: relative;
+}
+.temas h3{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size: 30px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 42px;
+    padding: 4px;
+    font-weight: 100;
+    left: 1%;
+    position: relative;
+}
+.temas .contenedorTemas{
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    text-align: center;
+    vertical-align:middle;
+    padding: 10px;
+}
+.conte{
+    margin: 15px 8px;
+}
+.temas .contenedorTemas img{
+    width: 104px;
+    height: 104px;
+}
+.ele1,.ele3,.ele4{
+    white-space: nowrap;
+}
+.temas .contenedorTemas h4{
+    font-family: 'IBM Plex Sans-SemiBold',sans-serif;
+    font-size: 24px;
+    color: #060A24;
+    letter-spacing: 0;
+    text-align: center;
+}
+ /* Footer mobile */
+.footer{
+    padding-top: 30px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+.footer .contenedorFooter{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    font-size:16px;
+    color: #060A24;
+    letter-spacing: 0;
+    line-height: 28px;
+    position: relative;
+    text-align: center;
+    left: -5%;
+    position: relative;
+}
+.footer .contenedorFooter i{
+    color: #060A24;
+}
+.footer .contenedorFooter div{
+    padding-left:30%;
+    padding-top: 15px;
+    
+}
+/* Section TABLET*/
+@media (min-width:600px){
+    /* invitados tablet */
+    .contenedorInvitados{
+        display: grid;
+        -webkit-display: grid;
+        -ms-display: grid;
+        -moz-display: grid;
+        -o-display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 33% 33% 33%;
+        
+    }
+    /* Temas tablet */
+    .temas .contenedorTemas{
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 50% 50%;
+    }
+  
+    /* Footer tablet */
+   .footer{
+       display: flex;
+       flex-flow: row wrap;
+       justify-content: space-around;
+   }
+    
+}
+/* Escritorio*/
+@media (min-width:1220px){
+    /*section escritorio */
+    .section{
+        margin-left: 200px;
+        max-width: 800px;
+        justify-content: center;  
+    }
+
+    .section .caja1 h1 {
+        font-size: 50px;
+        color: #060A24;
+        letter-spacing: 0;
+    }
+
+    .caja2{
+        margin-bottom: 30px;
+        font-size: 16px;
+        font-family:'IBM Plex Mono',monospace;
+        letter-spacing: 0;
+    }
+
+    .caja3{
+        width: 226px;  
+        height: 56px;
+        margin-left: 10px;
+        font-family: 'IBM Plex Mono',medium;
+        font-size: 18px;
+        text-align: center;
+   
+    }
+
+    /* Episodios escritorio */
+
+    .episodios .contenedorIframe{
+        display: flex;
+       flex-flow: row wrap;
+       justify-content: center;
+       align-content: center;
+       align-items: center;
+    }
+ 
+    .episodios .contenedorIframe iframe{
+        width: 584px;
+        height: 360px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        margin-left: 80px;
+        margin-bottom: 50px;
+        border: none;
+    }
+    /* Invitados escritorio */
+    .invitados{
+        margin-top: 300px;
+    }
+
+    .invitados .contenedorInvitados{
+        position: relative;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
+    }
+    /* Temas escritorio */
+    .temas .contenedorTemas{
+     display: grid;
+     grid-template-columns: 25% 25% 25% 25%;
+     grid-template-rows: 100%;
+    }
+
+   
+
+}
+
+ /*-----------------------------------------------*/
+
+
+
+/* De dónde venimos mobile */
+
+    .deDondeVenimos
+{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 54px;
+    position: relative;
+    height: 50%;
+}
+.rowp2  p{
+    font-family: 'IBM Plex Mono',monospace;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 22px;
+    width: 100%;
+    height: 264px;
+    color:#060a24;
+    padding-right: 16px;
+    padding-left: 16px;
+    width: 288px;
+    bottom: 150px;
+    position: relative;
+}
+.rowp1{
+    align-items: center;
+}
+
+.rowp1 img{
+    width: 340px;
+    height: 519px;
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    bottom: 500px;
+    vertical-align: middle;
+}
+
+.rowp2{
+    margin-top: 350px;
+    position: relative;
+}
+
+.rowp2 h2{
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 36px;
+    color: #060a24;
+    letter-spacing: 0;
+    line-height: 42px;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    bottom: 150px;
+    width: 75%;
+}
+ /* De dónde venimos tablet */
+@media (min-width:600PX){
+    
+    .deDondeVenimos{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 54px;
+        position: relative;
+        height: 50%;    
+    }
+
+    .rowp2  p{
+        font-family: 'IBM Plex Mono',monospace;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 22px;
+        width: 100%;
+        height: 264px;
+        color: #060a24;
+        padding-right: 16px;
+        padding-left: 16px;
+        width: 288px;
+        bottom: 50px;
+        position: absolute;  
+    }
+
+    .rowp1{
+        align-items: center;
+        width: 50%;
+    }
+    
+    .rowp1 img{
+        width: 340px;
+        height: 519px;
+        position: absolute;
+        right: 10px;
+        left: 10px;
+        bottom: 120px;
+
+    }
+    .rowp2{
+        margin-top: 350px;
+        position: relative;
+        width: 50%;
+    }
+    
+    .rowp2 h2{
+        font-family: 'IBM Plex Sans',sans-serif;
+        font-size: 36px;
+        color:#060a24;
+        letter-spacing: 0;
+        line-height: 42px;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: absolute;
+        bottom: 350px;
+        width: 100%;
+    }
+    
+}
+/* De dónde venimos Escritorio */
+@media (min-width:1220PX){
+    .deDondeVenimos{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+    }
+    .rowp1{
+        padding-right: 63px;
+    }
+    .rowp2{
+        position: relative; 
+    }
+    .rowp2 p {
+        font-size: 16px;
+        color: #060a24;
+        letter-spacing: 0;
+        line-height: 24px;
+        width: 464px;
+        height: 204px;
+        position: relative;
+        left: 62.4px;
+        bottom: 350px;
+    }
+    .rowp2 h2{     
+        font-family: 'IBM Plex Sans',sans-serif;
+        font-size: 48px;
+        color: #060a24;
+        letter-spacing: 0;
+        position: relative;
+        width: 100%;
+        left: 62.4px;
+    }
+    .rowp1 img{
+        width: 457.6px;
+        height: 750px;
+        position: absolute;
+        left: 150px;
+        bottom: 5%;
+    }
+}
+
+/*------------------------------------------------------------------------------*/
+/* Últimas novedades mobile */
+
+.ultimasNovedades{
+    margin-top: 5px;
+    background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -webkit-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -o-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    background-image: -moz-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+    clip-path:polygon(0% 10%, 100% 0%, 100% 100%,0% 100%);
+    -webkit-clip-path:polygon(0% 10%, 100% 0%, 100% 100%,0% 100%);
+    -ms-clip-path:polygon(0% 10%, 100% 0%, 100% 100%,0% 100%);
+    -o-clip-path:polygon(0% 10%, 100% 0%, 100% 100%,0% 100%);
+    -moz-clip-path:polygon(0% 10%, 100% 0%, 100% 100%,0% 100%);
+    width: 100%;
+    position: relative;
+    padding-top: 20px; 
+}
+
+.ult1{
+    padding-bottom: 150px;
+}
+
+.ult1 h2{
+    font-family: 'IBM Plex Sans';
+    font-size: 36px;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 42px;
+    margin-top: 64px;
+    margin-left: 16px;
+    margin-right: 16px;
+    position: relative;
+}
+
+.ult2{
+    margin-left: 16px;
+    margin-right: 16px;
+    background: #00f3bb;
+    width: 90%;
+    height: 48px;
+    position: absolute;
+    top: 60%;
+    margin-top: 10%;
+    
+}
+
+.ult2 a {
+    font-family: 'IBM Plex Mono-Medium', monospace;
+    font-size: 16px;
+    color: #060a24;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    text-decoration: none;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    white-space: nowrap;  
+    width: 100%;
+}
+
+.ult2:hover{
+    background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+    background-image: -webkit-linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+    background-image: -o-linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+    background-image: -moz-linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);  
+}
+
+.ult2 a:hover{
+    color:#fff;
+}
+/* Últimas novedades TABLET */
+@media screen and (min-width:550px){
+    .ultimasNovedades{
+        padding-bottom: 150px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+}
+
+.ult2{
+    width: 345px;
+    text-align: center;
+    align-items: center;    
+    }    
+}
+/* Últimas novedades Escritorio */
+@media screen and (min-width:1220px){
+    .ultimasNovedades{
+        margin-top: 5px;
+        background-image: linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+        background-image: -webkit-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+        background-image: -o-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+        background-image: -moz-linear-gradient(225deg, #0000FF 0%, #0000A3 100%);
+        clip-path:polygon(0% 20%, 100% 0%, 100% 100%,0% 100%);
+        -webkit-clip-path:polygon(0% 20%, 100% 0%, 100% 100%,0% 100%);
+        -ms-clip-path:polygon(0% 20%, 100% 0%, 100% 100%,0% 100%);
+        -o-clip-path:polygon(0% 20%, 100% 0%, 100% 100%,0% 100%);
+        -moz-clip-path:polygon(0% 20%, 100% 0%, 100% 100%,0% 100%);
+        width: 100%;
+        position: relative;
+        padding-top: 20px;  
+    }
+
+    .ult2{
+        top: 30%;
+        left: 50%;
+        width: 288px;
+        transform: translate(-50%);
+    }
+}
